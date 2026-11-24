@@ -8,20 +8,29 @@ import { Subject } from 'rxjs';
   templateUrl: './child-number-value.html',
 })
 export class ChildNumberValue {
-  // childNumberValue = 1;
-  @Input() childNumberValue: number = 12345;
-  @Output() childNumberValueChange = new Subject<number>();
 
-  childNumberValue2 = model(1);
+  @Input('childNumberValue')
+  _childNumberValue = 12345;
 
-  incrementChildValue() {
-    this.childNumberValue++;
-    this.fireChildNumberValueChange();
-    this.childNumberValue2.set(this.childNumberValue2() + 1);
+  @Output()
+  childNumberValueChange = new Subject<number>();
+
+  get childNumberValue(): number {
+    return this._childNumberValue;
   }
-
-  fireChildNumberValueChange() {
+  set childNumberValue(value: number) {
+    this._childNumberValue = value;
     this.childNumberValueChange.next(this.childNumberValue);
   }
 
+  protected firePropertyChangeNumberValue() {
+    this.childNumberValueChange.next(this.childNumberValue);
+  }
+
+  childNumberValue2 = model(12345);
+
+  incrementValue() {
+    this.childNumberValue++;
+    this.childNumberValue2.set(this.childNumberValue2() + 1);
+  }
 }

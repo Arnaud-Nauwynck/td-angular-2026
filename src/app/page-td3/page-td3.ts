@@ -8,7 +8,6 @@ import { ChildNumberValue } from '../child-number-value/child-number-value';
   templateUrl: './page-td3.html',
 })
 export class PageTd3 {
-
   numberValue = 1;
 
   numberValue2 = model(1);
@@ -16,6 +15,10 @@ export class PageTd3 {
   incrementValue() {
     this.numberValue++;
     this.numberValue2.set(this.numberValue2() + 1);
+  }
+
+  protected onChildValueChange($event: number) {
+    this.numberValue = $event;
   }
 }
 
