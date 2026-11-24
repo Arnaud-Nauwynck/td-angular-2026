@@ -1,8 +1,9 @@
 import { Component, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ChildNumberValue } from '../child-number-value/child-number-value';
 
 @Component({
-  imports: [FormsModule],
+  imports: [FormsModule, ChildNumberValue],
   selector: 'app-page-td3',
   templateUrl: './page-td3.html',
 })
