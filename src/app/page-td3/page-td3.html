@@ -27,6 +27,16 @@ Using child component: <br/>
     (childNumberValueChange)="onChildValueChange($event)"
     (childNumberValue2Change)="numberValue2.set($event)"
   >
-
   </app-child-number-value>
 </div>
+
+<div class="container app-border">
+  <app-child-number-value
+    [(childNumberValue)]="numberValue"
+    [(childNumberValue2)]="numberValue2"
+  >
+<!--
+-->
+  </app-child-number-value>
+</div>
+

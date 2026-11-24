@@ -7,6 +7,7 @@ import { GlossaryPage } from './glossary-page/glossary-page';
 import { SettingsPage } from './settings-page/settings-page';
 import { HomePage } from './home-page/home-page';
 import { PageTd3 } from './page-td3/page-td3';
+import { Td3Form } from './td3-form/td3-form';
 
 
 export const routes: Routes = [
@@ -20,5 +21,6 @@ export const routes: Routes = [
   {path:'glossary', component: GlossaryPage},
   {path:'profile/settings', component: SettingsPage},
   {path:'td3', component: PageTd3},
+  {path:'td3-form', component: Td3Form},
 
 ];
