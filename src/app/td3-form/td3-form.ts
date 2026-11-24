@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   imports: [ReactiveFormsModule],
@@ -7,16 +7,14 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './td3-form.html',
 })
 export class Td3Form {
+  private formBuilder = inject(FormBuilder);
 
-  form!: FormGroup;
-
-  constructor(fb: FormBuilder) {
-    this.form = fb.group({
-      firstName: [],
-      lastName: [],
-      email: [],
-    });
-  }
+  form = this.formBuilder.group({
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', Validators.required, // Validators.email()
+    ],
+  });
 
   onSubmit() {
     console.log('Form submitted:', this.form.value);
