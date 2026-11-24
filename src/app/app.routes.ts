@@ -6,6 +6,7 @@ import { DocumentationPage } from './documentation-page/documentation-page';
 import { GlossaryPage } from './glossary-page/glossary-page';
 import { SettingsPage } from './settings-page/settings-page';
 import { HomePage } from './home-page/home-page';
+import { PageTd3 } from './page-td3/page-td3';
 
 
 export const routes: Routes = [
@@ -18,5 +19,6 @@ export const routes: Routes = [
   {path:'documentation', component: DocumentationPage},
   {path:'glossary', component: GlossaryPage},
   {path:'profile/settings', component: SettingsPage},
+  {path:'td3', component: PageTd3},
 
 ];
