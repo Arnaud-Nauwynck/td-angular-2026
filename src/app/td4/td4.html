@@ -1,0 +1,37 @@
+<p>td4 works!</p>
+
+
+fieldNumber: {{fieldNumber}}, fieldNumber2: {{fieldNumber2()}}
+<br/>
+
+<button class="btn btn-outline-info" (click)="onClickIncrement()">Increment</button>
+<br/>
+
+
+not editable
+  <input type="number" [ngModel]="fieldNumber" disabled>
+  <input type="number" [ngModel]="fieldNumber2()" disabled>
+
+<!--
+<input type="number" [ngModel]="fieldNumber"
+    (ngModelChange)="onInputEditText($event)"
+    >
+-->
+<br/>
+
+<input type="number" [(ngModel)]="fieldNumber">
+<input type="number" [(ngModel)]="fieldNumber2">
+
+<br/>
+<br/>
+
+<div class="container app-border"  style="border: 1px solid #ccc; padding: 10px;">
+  <app-td4-child-comp
+    [childFieldNumber]="fieldNumber"
+    (childFieldNumberChange)="onChildFieldNumberChange($event)"
+    [childFieldNumber2]="fieldNumber2()"
+    (childFieldNumber2Change)="onChildFieldNumber2Change($event)"
+  >
+
+  </app-td4-child-comp>
+</div>

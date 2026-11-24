@@ -7,12 +7,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './td3-form.html',
 })
 export class Td3Form {
+
   private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    email: ['', Validators.required, // Validators.email()
+    email: ['', Validators.email
     ],
   });
 

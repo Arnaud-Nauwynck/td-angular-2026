@@ -1,0 +1,23 @@
+<p>td4-child-comp works!</p>
+
+
+childFieldNumber: {{childFieldNumber}}, childFieldNumber2: {{childFieldNumber2()}}
+<br/>
+
+<button class="btn btn-outline-info" (click)="onClickIncrement()">Increment</button>
+<br/>
+
+
+not editable
+<input type="number" [ngModel]="childFieldNumber" disabled>
+<input type="number" [ngModel]="childFieldNumber2()" disabled>
+
+<!--
+<input type="number" [ngModel]="childFieldNumber"
+    (ngModelChange)="onInputEditText($event)"
+    >
+-->
+<br/>
+
+<input type="number" [(ngModel)]="childFieldNumber">
+<input type="number" [(ngModel)]="childFieldNumber2">
