@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class Td3Form {
 
   private formBuilder = inject(FormBuilder);
+  firstNameInput = viewChild<ElementRef<HTMLInputElement>>('firstName');
+  lastNameInput = viewChild<ElementRef<HTMLInputElement>>('lastName');
+  emailInput = viewChild<ElementRef<HTMLInputElement>>('email');
 
   form = this.formBuilder.group({
     firstName: ['', Validators.required],
@@ -19,5 +22,9 @@ export class Td3Form {
 
   onSubmit() {
     console.log('Form submitted:', this.form.value);
+  }
+
+  focusInput(input: ElementRef<HTMLInputElement> | undefined) {
+    input?.nativeElement.focus();
   }
 }

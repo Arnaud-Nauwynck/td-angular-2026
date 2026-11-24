@@ -6,28 +6,28 @@
     <label for="firstName" [class.text-danger]="form.controls.firstName.invalid && form.controls.firstName.touched">First Name</label>
     <input type="text" id="firstName" class="form-control"
            [class.is-invalid]="form.controls.firstName.invalid && form.controls.firstName.touched"
-           formControlName="firstName" >
+           formControlName="firstName" #firstName >
   </div>
 
   <div class="form-group">
     <label for="lastName" [class.text-danger]="form.controls.lastName.invalid && form.controls.lastName.touched">Last Name</label>
-    <input type="text" id="lastName" class="form-control" [class.is-invalid]="form.controls.lastName.invalid && form.controls.lastName.touched" [formControlName]="'lastName'" >
+    <input type="text" id="lastName" class="form-control" [class.is-invalid]="form.controls.lastName.invalid && form.controls.lastName.touched" [formControlName]="'lastName'" #lastName >
   </div>
 
   <div class="form-group">
     <label for="email" [class.text-danger]="form.controls.email.invalid && form.controls.email.touched">Email</label>
-    <input type="email" id="email" class="form-control" [class.is-invalid]="form.controls.email.invalid && form.controls.email.touched" [formControlName]="'email'" >
+    <input type="email" id="email" class="form-control" [class.is-invalid]="form.controls.email.invalid && form.controls.email.touched" [formControlName]="'email'" #email >
   </div>
 
   <button type="submit" [disabled]="form.invalid" [formAction]="onSubmit()" >Submit</button>
 
   @if (form.controls.firstName.invalid && form.controls.firstName.touched) {
-    <p class="text-danger">First Name is required.</p>
+    <p class="text-danger" (click)="focusInput(firstNameInput())">First Name is required.<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: .25rem; vertical-align: text-bottom; cursor: pointer;" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></p>
   }
   @if (form.controls.lastName.invalid && form.controls.lastName.touched) {
-    <p class="text-danger">Last Name is required.</p>
+    <p class="text-danger" (click)="focusInput(lastNameInput())">Last Name is required.<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: .25rem; vertical-align: text-bottom; cursor: pointer;" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></p>
   }
   @if (form.controls.email.invalid && form.controls.email.touched) {
-    <p class="text-danger">Email is required.</p>
+    <p class="text-danger" (click)="focusInput(emailInput())">Email is required.<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: .25rem; vertical-align: text-bottom; cursor: pointer;" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></p>
   }
 </form>
