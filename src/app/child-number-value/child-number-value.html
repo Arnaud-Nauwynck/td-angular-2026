@@ -2,16 +2,19 @@
 
 
 
-numberValue:  ...
+childNumberValue:  {{ childNumberValue }}
 
 <br/>
 
-numberValue2: ...
+childNumberValue2: {{ childNumberValue2() }}
 
 <br/>
 
-<button class="btn btn-outline-info" >Increment</button>
+<button class="btn btn-outline-info" (click)="incrementChildValue()">Increment</button>
 
 <br/>
 
-<input type="number"  />
+<input type="number" [(ngModel)]="childNumberValue"
+                      (ngModelChange)="fireChildNumberValueChange()"/>
+
+<input type="number" [(ngModel)]="childNumberValue2" />

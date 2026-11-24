@@ -8,6 +8,7 @@ import { ChildNumberValue } from '../child-number-value/child-number-value';
   templateUrl: './page-td3.html',
 })
 export class PageTd3 {
+
   numberValue = 1;
 
   numberValue2 = model(1);

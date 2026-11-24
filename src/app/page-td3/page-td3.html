@@ -21,5 +21,16 @@ numberValue2: {{numberValue2()}}
 
 Using child component: <br/>
 <div class="container app-border">
-  <app-child-number-value></app-child-number-value>
+
+  <!--
+  -->
+  <app-child-number-value
+    [childNumberValue]="numberValue"
+    (childNumberValueChange)="numberValue = $event"
+    [childNumberValue2]="numberValue2()"
+    (childNumberValue2Change)="numberValue2.set($event)"
+  >
+    ...
+  </app-child-number-value>
+
 </div>
